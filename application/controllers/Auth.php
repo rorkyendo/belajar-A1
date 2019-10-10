@@ -24,5 +24,12 @@ class Auth extends CI_Controller {
 		$this->load->view('loginV2',$data);
 	}
 
+	public function registerV2()
+	{
+		$data['title'] = 'Register Panel';
+		$data['subtitle'] = 'Silahkan Lakukan Pendaftaran';
+		$this->load->view('registerV2',$data);
+	}
+
 
 }
