@@ -5,7 +5,6 @@
     <title><?php echo $title;?></title>
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js');?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
   </head>
   <body>
 <div class="container">
@@ -13,8 +12,7 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <h3 class="text-center"><?php echo $subtitle;?></h3>
-      <!-- <form class="" action="<?php echo base_url('auth/doCreate');?>" method="post" id="formRegister"> -->
-      <form class="" method="post" id="formRegister">
+      <form class="" id="formRegister">
       <div class="form-group">
           <label for="NIM">NIM</label>
           <input type="text" class="form-control" name="nim" id='nim'>
@@ -68,6 +66,8 @@
       var username = $('#username').val()
       var password = $('#password').val()
 
+      alert(nim);
+
       $.ajax({
         url:'<?php echo base_url('auth/doCreateWithJQUERY');?>',
         type:'POST',
@@ -78,8 +78,9 @@
         },error:function(msg){
           alert('terjadi kesalahan')
         }
-      })
+      });
     });
   </script>
+  <script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
   </body>
 </html>
