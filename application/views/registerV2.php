@@ -75,6 +75,8 @@
         success:function(data){
           alert('data berhasil disimpan');
           console.log(JSON.parse(data));
+        },error:function(msg){
+          alert('terjadi kesalahan')
         }
       })
     });

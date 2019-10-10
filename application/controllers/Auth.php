@@ -34,17 +34,17 @@ class Auth extends CI_Controller {
 	public function doCreateWithJQUERY()
 	{
 		$dataMahasiswa = array(
-			'nim' => $this->input->post('nim');
-			'nama_lengkap' => $this->input->post('nama_lengkap');
-			'jenkel' => $this->input->post('jenkel');
-			'alamat' => $this->input->post('alamat');
-			'fakultas' => $this->input->post('fakultas');
-			'prodi' => $this->input->post('prodi');
+			'nim' => $this->input->post('nim'),
+			'nama_lengkap' => $this->input->post('nama_lengkap'),
+			'jenkel' => $this->input->post('jenkel'),
+			'alamat' => $this->input->post('alamat'),
+			'fakultas' => $this->input->post('fakultas'),
+			'prodi' => $this->input->post('prodi'),
 		);
 
 		$dataPengguna = array(
-			'username' => $this->input->post('username');
-			'password' => $this->input->post('password');
+			'username' => $this->input->post('username'),
+			'password' => $this->input->post('password'),
 		);
 
 		$allData = array(
