@@ -17,5 +17,12 @@ class Auth extends CI_Controller {
 		$this->load->view('register',$data);
 	}
 
+	public function loginV2()
+	{
+		$data['title'] = 'Login Panel';
+		$data['subtitle'] = 'Silahkan Login';
+		$this->load->view('loginV2',$data);
+	}
+
 
 }
