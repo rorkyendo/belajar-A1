@@ -31,5 +31,34 @@ class Auth extends CI_Controller {
 		$this->load->view('registerV2',$data);
 	}
 
+	public function doCreateWithJQUERY()
+	{
+		$dataMahasiswa = array(
+			'nim' => $this->input->post('nim');
+			'nama_lengkap' => $this->input->post('nama_lengkap');
+			'jenkel' => $this->input->post('jenkel');
+			'alamat' => $this->input->post('alamat');
+			'fakultas' => $this->input->post('fakultas');
+			'prodi' => $this->input->post('prodi');
+		);
+
+		$dataPengguna = array(
+			'username' => $this->input->post('username');
+			'password' => $this->input->post('password');
+		);
+
+		$allData = array(
+			'dataMahasiswa' => $dataMahasiswa,
+			'dataPengguna' => $dataPengguna,
+		);
+
+		$saveDataMahasiswa = $this->General_model->create_general('mahasiswa',$dataMahasiswa);
+		$saveDataPengguna = $this->General_model->create_general('pengguna',$dataPengguna);
+		if ($saveDataPengguna == TRUE && $saveDataMahasiswa == TRUE) {
+			echo json_encode($allData);
+		}else {
+			echo "error";
+		}
+	}
 
 }

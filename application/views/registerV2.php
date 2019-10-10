@@ -68,7 +68,15 @@
       var username = $('#username').val()
       var password = $('#password').val()
 
-      alert(nim);
+      $.ajax({
+        url:'<?php echo base_url('auth/doCreateWithJQUERY');?>',
+        type:'POST',
+        data:'nim='+nim+'&&nama_lengkap='+nama_lengkap+'&&jenkel='+jenkel+'&&alamat='+alamat+'&&fakultas='+fakultas+'&&prodi='+prodi+'&&username='+username+'&&password='+password,
+        success:function(data){
+          alert('data berhasil disimpan');
+          console.log(JSON.parse(data));
+        }
+      })
     });
   </script>
   </body>
