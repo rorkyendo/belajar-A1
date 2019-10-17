@@ -10,18 +10,18 @@ class Auth extends CI_Controller {
 		$this->load->view('login',$data);
 	}
 
-	public function register()
-	{
-		$data['title'] = 'Register Panel';
-		$data['subtitle'] = 'Silahkan Lakukan Pendaftaran';
-		$this->load->view('register',$data);
-	}
-
 	public function loginV2()
 	{
 		$data['title'] = 'Login Panel';
 		$data['subtitle'] = 'Silahkan Login';
 		$this->load->view('loginV2',$data);
+	}
+
+	public function register()
+	{
+		$data['title'] = 'Register Panel';
+		$data['subtitle'] = 'Silahkan Lakukan Pendaftaran';
+		$this->load->view('register',$data);
 	}
 
 	public function registerV2()
@@ -31,9 +31,8 @@ class Auth extends CI_Controller {
 		$this->load->view('registerV2',$data);
 	}
 
-	public function doCreateWithJQUERY()
-	{
-		
+	public function doRegisterWithJquery(){
+
 		$dataMahasiswa = array(
 			'nim' => $this->input->post('nim'),
 			'nama_lengkap' => $this->input->post('nama_lengkap'),
@@ -44,22 +43,24 @@ class Auth extends CI_Controller {
 		);
 
 		$dataPengguna = array(
+			'nim' => $this->input->post('nim'),
 			'username' => $this->input->post('username'),
-			'password' => $this->input->post('password'),
+			'password' => sha1($this->input->post('password')),
 		);
 
-		$allData = array(
-			'dataMahasiswa' => $dataMahasiswa,
-			'dataPengguna' => $dataPengguna,
-		);
-
+		$savePengguna = $this->General_model->create_general('pengguna',$dataPengguna);
 		$saveDataMahasiswa = $this->General_model->create_general('mahasiswa',$dataMahasiswa);
-		$saveDataPengguna = $this->General_model->create_general('pengguna',$dataPengguna);
-		if ($saveDataPengguna == TRUE && $saveDataMahasiswa == TRUE) {
-			echo json_encode($allData);
+
+		if (($saveDataMahasiswa && $savePengguna) == TRUE) {
+			echo "Data Berhasil disimpan!";
 		}else {
-			echo "error";
+			echo "terjadi kesalahan!";
 		}
+
+	}
+
+	public function mahasiswa(){
+		$this->General_model->get_general('mahasiswa');
 	}
 
 }
