@@ -18,7 +18,7 @@
               <form class="" id="formRegister">
               <div class="form-group">
                   <label for="NIM">NIM</label>
-                  <input type="text" class="form-control" name="nim" id="nim" onkeyup="cekNim('this.value')">
+                  <input type="text" class="form-control" name="nim" id="nim" onkeyup="cekNim(this.value)">
                   <font color="" id="notif">Disini respon data akan dicek</font>
               </div>
               <div class="form-group">
