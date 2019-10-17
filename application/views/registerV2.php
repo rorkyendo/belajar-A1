@@ -18,7 +18,8 @@
               <form class="" id="formRegister">
               <div class="form-group">
                   <label for="NIM">NIM</label>
-                  <input type="text" class="form-control" name="nim" id="nim">
+                  <input type="text" class="form-control" name="nim" id="nim" onkeyup="cekNim('this.value')">
+                  <font color="" id="notif">Disini respon data akan dicek</font>
               </div>
               <div class="form-group">
                 <label for="Nama_lengkap">Nama Lengkap</label>
@@ -80,6 +81,28 @@
                   }
                 });
               })
+            </script>
+            <script type="text/javascript">
+              function cekNim(nim){
+                $.ajax({
+                  url:'<?php echo base_url('auth/cekNim/');?>',
+                  type:'get',
+                  data:'nim='+nim,
+                  success:function(msg){
+                    if (msg == 'true') {
+                      $("#notif").text('Data nim sudah ada!');
+                      $("#notif").prop('color','red');
+                      $("#daftar").attr('disabled',true);
+                    }else if (msg == 'false') {
+                      $("#notif").text('Data nim dapat digunakan!');
+                      $("#notif").prop('color','green');
+                      $("#daftar").attr('disabled',false);
+                    }
+                  },error:function(){
+                    alert('Terjadi kesalahan')
+                  }
+                });
+              }
             </script>
           </div>
         </div>
