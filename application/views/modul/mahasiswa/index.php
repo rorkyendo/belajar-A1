@@ -7,7 +7,7 @@
         </div>
         <div class="panel panel-body">
           <div class="table-responsive">
-            <table class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered" id="DataTables">
               <thead>
                 <tr>
                   <th>NIM</th>
@@ -40,3 +40,8 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+$(document).ready( function () {
+  $('#DataTables').DataTable();
+} );
+</script>
