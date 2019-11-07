@@ -70,6 +70,7 @@
                 var prodi = $('#prodi').val()
                 var username = $('#username').val()
                 var password = $('#password').val()
+                $('#infoProses').text('Loading data sedang di proses...');
                 $.ajax({
                   url:'<?php echo base_url('auth/doRegisterWithJquery');?>',
                   type:'post',
