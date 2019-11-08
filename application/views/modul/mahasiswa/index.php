@@ -42,6 +42,13 @@
 </div>
 <script type="text/javascript">
 $(document).ready( function () {
-  $('#DataTables').DataTable();
+  $('#DataTables').DataTable({
+    dom: 'Bfrtip',
+    buttons: [
+        'colvis',
+        'excel',
+        'print'
+    ]
+  });
 } );
 </script>
