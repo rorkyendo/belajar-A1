@@ -13,3 +13,8 @@
     <script type="text/javascript" charset="utf8" src="<?php echo base_url('assets/plugins/DataTables/dataTables.buttons.min.js');?>"></script>
   </head>
 <body>
+<nav class="nav navbar-nav">
+  <ul>
+    <li><a href="<?php echo base_url('Auth/logout');?>" class="btn btn-info btn-xs">Logout</a></li>
+  </ul>
+</nav>

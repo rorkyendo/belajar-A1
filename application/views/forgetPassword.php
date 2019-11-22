@@ -15,20 +15,13 @@
           <div class="panel-body">
             <h3 class="text-center"><?php echo $subtitle;?></h3>
             <?php echo $this->session->flashdata('notif');?>
-            <form class="" action="<?php echo base_url('auth/doLogin');?>" method="post">
+            <form class="" action="<?php echo base_url('auth/doResetPassword');?>" method="post">
             <div class="form-group">
-              <label for="Username">username</label>
-              <input type="text" class="form-control" name="username">
+              <label for="Email">Masukkan Email</label>
+              <input type="email" class="form-control" name="email">
             </div>
-            <div class="form-group">
-              <label for="Password">password</label>
-              <input type="password" class="form-control" name="password">
-            </div>
-            <button type="submit" class="btn btn-info btn-sm">Login</button>
+            <button type="submit" class="btn btn-info btn-sm">Reset</button>
             </form>
-            <p>
-              Lupa Password ? Silahkan <a href="<?php echo base_url('Auth/forgetPass');?>" target="_blank">klik disini</a>
-            </p>
           </div>
         </div>
       </div>
