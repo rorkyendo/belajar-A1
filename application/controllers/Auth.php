@@ -49,15 +49,15 @@ class Auth extends CI_Controller {
 		$email = $this->input->post('email');
 		$cek = $this->General_model->get_by_id_general('pengguna','email',$email);
 		if ($cek) {
-			$passwordBaru = "C";
+			$data['passwordBaru'] = "C";
+			$data['pengguna'] = $cek;
 
-			$dataPengguna = array('password' => $passwordBaru);
+			$dataPengguna = array('password' => sha1($data['passwordBaru']));
 			if ($this->General_model->update_general('pengguna','email',$email,$dataPengguna) == TRUE) {
 				$this->session->set_flashdata('notif','<div class="alert alert-success">Password berhasil diubah</div>');
 
 				$subject = "Ubah Password";
-				$mailContent = "<h1>Perbuahan Password Baru</h1>";
-				$mailContent .= "<p>Password baru kamu :".$passwordBaru."</p>";
+				$mailContent = $this->load->view('email_template',$data,TRUE);
 				$mailTo = $email;
 				$mailFromId = "Administrator";
 				$mailFromName = "Administrator";
