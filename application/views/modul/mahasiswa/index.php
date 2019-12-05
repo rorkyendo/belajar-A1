@@ -40,7 +40,7 @@
     </div>
   </div>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready( function () {
   $('#DataTables').DataTable({
     dom: 'Bfrtip',
@@ -51,4 +51,4 @@ $(document).ready( function () {
     ]
   });
 } );
-</script>
+</script> -->

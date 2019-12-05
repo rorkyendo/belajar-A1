@@ -38,4 +38,15 @@ class Mahasiswa extends CI_Controller {
 	// 	);
 	// }
 
+	public function dataMahasiswa(){
+		$data['title'] = 'Data mahasiswa';
+		$data['subtitle'] = 'List Data Jumlah Mahasiswa';
+		$data['mahasiswa'] = $this->Mahasiswa_model->countMahasiswa('jenkel');
+		$this->load->view('template/header',$data);
+		$this->load->view('template/navbar');
+		$this->load->view('template/sidebar');
+		$this->load->view('modul/mahasiswa/dataMahasiswa',$data);
+		$this->load->view('template/footer');
+	}
+
 }
