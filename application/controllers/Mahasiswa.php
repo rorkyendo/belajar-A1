@@ -49,4 +49,13 @@ class Mahasiswa extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function deleteMahasiswa(){
+		$nim = $this->input->get('nim');
+		$this->General_model->delete_general('pengguna','nim',$nim);
+		//=============== HAPUS DATA DENGAN ANCHOR atau LINK TARGET =====================//
+		$this->session->set_flashdata('notif','<div class="alert alert-success">Data mahasiswa dengan nim '.$nim.' berhasil dihapus</div>');
+		redirect('mahasiswa');
+		//=============== HAPUS DATA DENGAN ANCHOR atau LINK TARGET =====================//
+	}
+
 }

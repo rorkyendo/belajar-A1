@@ -6,6 +6,7 @@
           <?php echo $subtitle;?>
         </div>
         <div class="panel panel-body">
+          <?php echo $this->session->flashdata('notif');?>
           <div class="table-responsive">
             <table class="table table-hover table-bordered" id="DataTables">
               <thead>
@@ -29,6 +30,8 @@
                   <td>
                     <button type="button" onclick="detail('<?php echo $key->nim;?>')" class="btn btn-xs btn-info">Detail</button>
                     <button type="button" onclick="edit('<?php echo $key->nim;?>')" class="btn btn-xs btn-warning">Edit</button>
+                    <button type="button" onclick="delete('<?php echo $key->nim;?>')" class="btn btn-xs btn-danger">Hapus</button>
+                    <a onclick="return confirm('Apakah kamu yakin akan menghapus data mahasiswa dengan NIM <?php echo $key->nim;?> ?')" href="<?php echo base_url('mahasiswa/deleteMahasiswa?nim='.$key->nim);?>" class="btn btn-xs btn-danger">Hapus</a>
                   </td>
                 </tr>
                 <?php endforeach; ?>

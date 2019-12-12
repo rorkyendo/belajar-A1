@@ -11,6 +11,8 @@
     <script type="text/javascript" charset="utf8" src="<?php echo base_url('assets/plugins/DataTables/datatables.js');?>"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/DataTables/buttons.dataTables.min.css');?>">
     <script type="text/javascript" charset="utf8" src="<?php echo base_url('assets/plugins/DataTables/dataTables.buttons.min.js');?>"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/sweetAlert2/sweetalert2.min.css');?>">
+    <script type="text/javascript" charset="utf8" src="<?php echo base_url('assets/plugins/sweetAlert2/sweetalert2.all.min.js');?>"></script>
   </head>
 <body>
 <nav class="nav navbar-nav">
